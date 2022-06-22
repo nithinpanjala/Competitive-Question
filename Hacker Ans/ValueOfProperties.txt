@@ -2,3 +2,13 @@ select s.br, s.pr from (select j.b as br, sum(j.p) as pr from (select
 	house.buyer_id as b, price.price as p from house inner join price on
 	house.house_id = price.house_id) as j group by j.b having count(j.b) > 1) as
 	s where s.pr>100 ;
+	
+	
+	
+	/*********** nithin ****************/
+	
+	              select house.BUYER_ID, sum(price.price) as TOTAL_WORTH 
+              from house left join price 
+              on house.HOUSE_ID = price .HOUSE_ID 
+              group by BUYER_ID 
+              having sum(price.price)>=100 and count(house.house_id) >1;
